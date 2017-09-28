@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+    <changeSet id="20170911113000-1" author="cp">
+        <createTable tableName="person">
+            <column name="id" type="java.sql.Types.VARCHAR">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="name" type="java.sql.Types.VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cpf" type="java.sql.Types.VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="rg" type="java.sql.Types.VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="address" type="java.sql.Types.VARCHAR">
+                <constraints nullable="false"/>
+            </column>
+
+
+            <column name="created_at" type="java.sql.Types.TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20170911113000-2" author="cp">
+        <createIndex indexName="idx_code"
+                     tableName="person"
+                     unique="true">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>
