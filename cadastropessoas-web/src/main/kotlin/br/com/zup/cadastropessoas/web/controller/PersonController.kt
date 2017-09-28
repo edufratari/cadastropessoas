@@ -8,6 +8,7 @@ import br.com.zup.cadastropessoas.web.util.toRepresentation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
 
 class PersonController @Autowired constructor(private val commandHandler: PersonCommandHandler) {
@@ -19,6 +20,10 @@ class PersonController @Autowired constructor(private val commandHandler: Person
         val person = commandHandler.handler(command)
 
         return ResponseEntity(person.toRepresentation(), HttpStatus.CREATED)
+
+    }
+
+    fun update(@PathVariable("personId") personId: String, @RequestBody request: UpdatePersonRequest){
 
     }
 
