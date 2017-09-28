@@ -36,6 +36,7 @@
         <realwave.context.version>1.0.5</realwave.context.version>
         <realwave.graylog.version>1.0.4-SNAPSHOT</realwave.graylog.version>
         <realwave.exception.handler.version>1.0.1-SNAPSHOT</realwave.exception.handler.version>
+        <commons.lang3.version>3.5</commons.lang3.version>
     </properties>
 
     <dependencies>
@@ -52,6 +53,18 @@
         </dependency>
 
         <dependency>
+            <groupId>br.com.zup.realwave.common</groupId>
+            <artifactId>realwave-graylog</artifactId>
+            <version>${realwave.graylog.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit</artifactId>
             <version>${kotlin.version}</version>
@@ -59,24 +72,17 @@
         </dependency>
 
         <dependency>
-            <groupId>br.com.zup.realwave.common</groupId>
-            <artifactId>realwave-graylog</artifactId>
-            <version>${realwave.graylog.version}</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>me.zup.session</groupId>
-            <artifactId>zupme-session-spring-boot</artifactId>
-            <version>${zup.me.session.version}</version>
-        </dependency>
-
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>cadastropessoas-infrastructure</artifactId>
+                <artifactId>cadastropessoas-infraestructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -120,6 +126,13 @@
                 <groupId>br.com.zup</groupId>
                 <artifactId>spring-tenant</artifactId>
                 <version>${zup.spring.tenant.version}</version>
+            </dependency>
+
+            <!--TEST-->
+            <dependency>
+                <groupId>com.nhaarman</groupId>
+                <artifactId>mockito-kotlin-kt1.1</artifactId>
+                <version>1.5.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -166,7 +179,7 @@
                         <goals>
                             <goal>test-compile</goal>
                         </goals>
-                           <configuration>
+                        <configuration>
                             <sourceDirs>
                                 <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
                             </sourceDirs>
