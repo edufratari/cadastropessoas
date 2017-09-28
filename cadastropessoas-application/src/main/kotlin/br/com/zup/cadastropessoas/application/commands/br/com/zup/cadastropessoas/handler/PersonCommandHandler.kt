@@ -6,9 +6,10 @@ import br.com.zup.cadastropessoas.domain.Person
 import br.com.zup.cadastropessoas.domain.PersonId
 import br.com.zup.cadastropessoas.domain.repository.PersonRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import java.util.*
 
-
+@Component
 open class PersonCommandHandler @Autowired constructor(private val repository: PersonRepository) {
 
     fun handler(command: CreatePerson): Person {

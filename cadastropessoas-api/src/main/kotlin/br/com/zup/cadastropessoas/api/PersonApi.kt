@@ -4,7 +4,9 @@ import br.com.zup.cadastropessoas.api.representation.PersonRepresentation
 import br.com.zup.cadastropessoas.api.request.CreatePersonRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 
+@RequestMapping("/person")
 interface PersonApi {
 
     fun create(@RequestBody request: CreatePersonRequest): ResponseEntity<PersonRepresentation>
