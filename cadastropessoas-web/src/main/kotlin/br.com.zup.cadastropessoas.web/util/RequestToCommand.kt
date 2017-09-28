@@ -1,10 +1,11 @@
 package br.com.zup.cadastropessoas.web.util
 
 import br.com.zup.cadastropessoas.api.request.CreatePersonRequest
+import br.com.zup.cadastropessoas.application.commands.CreatePerson
 import br.com.zup.cadastropessoas.domain.*
 
 fun CreatePersonRequest.toCommand() =
-        br.com.zup.cadastropessoas.application.commands.CreatePerson(
+        CreatePerson(
                 personId = PersonId(),
                 name = Name(this.name),
                 address = Address(this.address),

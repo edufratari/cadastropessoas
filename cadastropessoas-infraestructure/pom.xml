@@ -13,16 +13,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>br.com.zup.realwave.common</groupId>
-            <artifactId>realwave-exception-handler</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>br.com.zup.realwave.common</groupId>
-            <artifactId>realwave-context</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
@@ -46,11 +36,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>br.com.zup.realwave.common</groupId>
-            <artifactId>realwave-exception-handler</artifactId>
         </dependency>
 
         <dependency>

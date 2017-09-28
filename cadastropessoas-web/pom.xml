@@ -14,6 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>cadastropessoas-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>cadastropessoas-domain</artifactId>
         </dependency>
 
@@ -25,16 +30,6 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>cadastropessoas-repository</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>br.com.zup.realwave.common</groupId>
-            <artifactId>realwave-context</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>br.com.zup</groupId>
-            <artifactId>spring-tenant</artifactId>
         </dependency>
 
         <dependency>

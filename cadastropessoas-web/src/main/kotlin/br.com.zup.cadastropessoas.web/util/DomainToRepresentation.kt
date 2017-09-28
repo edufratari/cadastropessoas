@@ -5,9 +5,9 @@ import br.com.zup.cadastropessoas.domain.Person
 
 fun Person.toRepresentation() =
         PersonRepresentation(
-                address = this.address.value,
-                rg = this.rg.value,
-                cpf = this.cpf.value,
-                name = this.name.value,
+                address = this.address.value!!,
+                rg = this.rg.value!!,
+                cpf = this.cpf.value!!,
+                name = this.name.value!!,
                 id = this.id.value
         )

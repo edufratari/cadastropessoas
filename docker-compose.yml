@@ -1,0 +1,11 @@
+version: '2'
+services:
+ postgres:
+   image: postgres:9.6
+   ports:
+     - "5432:5432"
+   environment:
+     - POSTGRES_DB=manager_person
+     - POSTGRES_USER=manager_person
+     - POSTGRES_PASSWORD=manager_person
+     - MAX_CONNECTIONS=300

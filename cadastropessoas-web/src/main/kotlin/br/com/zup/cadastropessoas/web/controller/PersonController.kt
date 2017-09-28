@@ -1,5 +1,6 @@
 package br.com.zup.cadastropessoas.web.controller
 
+import br.com.zup.cadastropessoas.api.PersonApi
 import br.com.zup.cadastropessoas.api.representation.PersonRepresentation
 import br.com.zup.cadastropessoas.api.request.CreatePersonRequest
 import br.com.zup.cadastropessoas.application.commands.br.com.zup.cadastropessoas.handler.PersonCommandHandler
@@ -11,19 +12,15 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
 
-class PersonController @Autowired constructor(private val commandHandler: PersonCommandHandler) {
+class PersonController @Autowired constructor(private val commandHandler: PersonCommandHandler) : PersonApi {
 
-    fun create(@RequestBody request: CreatePersonRequest): ResponseEntity<PersonRepresentation> {
+    override fun create(@RequestBody request: CreatePersonRequest): ResponseEntity<PersonRepresentation> {
 
         val command = request.toCommand()
 
         val person = commandHandler.handler(command)
 
         return ResponseEntity(person.toRepresentation(), HttpStatus.CREATED)
-
-    }
-
-    fun update(@PathVariable("personId") personId: String, @RequestBody request: UpdatePersonRequest){
 
     }
 

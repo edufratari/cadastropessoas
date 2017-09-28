@@ -5,8 +5,6 @@ import br.com.zup.cadastropessoas.domain.Cpf
 import br.com.zup.cadastropessoas.domain.Person
 import br.com.zup.cadastropessoas.domain.PersonId
 import br.com.zup.cadastropessoas.domain.repository.PersonRepository
-import br.com.zup.realwave.common.exception.handler.exception.NotFoundException
-import br.com.zup.realwave.common.exception.handler.to.ResourceValue
 import org.springframework.beans.factory.annotation.Autowired
 import java.util.*
 
@@ -63,14 +61,16 @@ open class PersonCommandHandler @Autowired constructor(private val repository: P
     private fun getPerson(personId: PersonId): Person? {
         return Optional.ofNullable(repository.find(personId))
                 .orElseThrow {
-                    NotFoundException(ResourceValue(PersonId::class.java, personId.value))
+                    //TODO Criar sua própria exceção PersonNotFoundException
+                    throw Exception()
                 }
     }
 
     private fun getPerson(cpf: Cpf): Person? {
         return Optional.ofNullable(repository.findCpf(cpf))
                 .orElseThrow {
-                    NotFoundException(ResourceValue(Cpf::class.java, cpf.value))
+                    //TODO Criar sua própria exceção PersonNotFoundException
+                    throw Exception()
                 }
     }
 
