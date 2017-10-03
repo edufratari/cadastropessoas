@@ -1,4 +1,4 @@
-package br.com.zup.cadastropessoas.application.commands.br.com.zup.cadastropessoas.handler
+package br.com.zup.cadastropessoas.application.commands.handler
 
 import br.com.zup.cadastropessoas.application.commands.*
 import br.com.zup.cadastropessoas.domain.Cpf
@@ -63,7 +63,7 @@ open class PersonCommandHandler @Autowired constructor(private val repository: P
         return Optional.ofNullable(repository.find(personId))
                 .orElseThrow {
                     //TODO Criar sua própria exceção PersonNotFoundException
-                    throw Exception()
+                    throw PersonNotFoundException("Person not found")
                 }
     }
 
@@ -71,7 +71,7 @@ open class PersonCommandHandler @Autowired constructor(private val repository: P
         return Optional.ofNullable(repository.findCpf(cpf))
                 .orElseThrow {
                     //TODO Criar sua própria exceção PersonNotFoundException
-                    throw Exception()
+                    throw PersonNotFoundException("Person not found")
                 }
     }
 

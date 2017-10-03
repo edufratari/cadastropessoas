@@ -19,3 +19,5 @@ data class DeletePerson(val personId: PersonId)
 data class GetPerson(val personId: PersonId)
 
 data class GetPersonByCpf(val cpf: Cpf)
+
+data class ValidationPerson(val cpf: Cpf, val personId: PersonId)

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
 @RequestMapping("/person")
-interface PersonApi {
+interface   PersonApi {
 
     @PostMapping(consumes = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))
     fun create(@RequestBody request: CreatePersonRequest): ResponseEntity<PersonRepresentation>

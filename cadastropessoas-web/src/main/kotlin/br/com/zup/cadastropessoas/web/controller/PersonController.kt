@@ -7,7 +7,8 @@ import br.com.zup.cadastropessoas.api.request.UpdatePersonRequest
 import br.com.zup.cadastropessoas.application.commands.DeletePerson
 import br.com.zup.cadastropessoas.application.commands.GetPerson
 import br.com.zup.cadastropessoas.application.commands.GetPersonByCpf
-import br.com.zup.cadastropessoas.application.commands.br.com.zup.cadastropessoas.handler.PersonCommandHandler
+import br.com.zup.cadastropessoas.application.commands.ValidationPerson
+import br.com.zup.cadastropessoas.application.commands.handler.PersonCommandHandler
 import br.com.zup.cadastropessoas.domain.Cpf
 import br.com.zup.cadastropessoas.domain.PersonId
 import br.com.zup.cadastropessoas.web.util.toCommand
@@ -56,6 +57,6 @@ class PersonController @Autowired constructor(private val commandHandler: Person
         val command = GetPersonByCpf(Cpf(cpf))
         val person = commandHandler.handler(command)
         return ResponseEntity(person?.toRepresentation(), HttpStatus.OK)
-
     }
+
 }

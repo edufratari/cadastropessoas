@@ -1,5 +1,7 @@
 package br.com.zup.cadastropessoas.jdbc.repository.config
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
@@ -10,6 +12,7 @@ import javax.sql.DataSource
 
 @Configuration
 @ComponentScan(basePackages = arrayOf("br.com.zup.cadastropessoas.jdbc.repository"))
+@EnableAutoConfiguration(exclude = arrayOf(DataSourceAutoConfiguration::class))
 open class RepositoryConfig {
 
     @Bean

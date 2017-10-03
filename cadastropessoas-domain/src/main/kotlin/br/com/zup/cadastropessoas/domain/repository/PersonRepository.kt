@@ -12,7 +12,7 @@ interface PersonRepository {
 
     fun delete(id: PersonId): Int
 
-    fun find(id: PersonId): Person
+    fun find(id: PersonId): Person?
 
-    fun findCpf(cpf: Cpf): Person
+    fun findCpf(cpf: Cpf): Person?
 }
