@@ -18,7 +18,6 @@
 
     <modules>
         <module>cadastropessoas-domain</module>
-        <module>cadastropessoas-api</module>
         <module>cadastropessoas-web</module>
         <module>cadastropessoas-repository</module>
         <module>cadastropessoas-infraestructure</module>
@@ -65,12 +64,6 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>cadastropessoas-infraestructure</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>cadastropessoas-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

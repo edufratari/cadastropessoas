@@ -1,7 +1,7 @@
 package br.com.cadastropessoas.web.util
 
-import br.com.cadastropessoas.api.representation.PersonRepresentation
 import br.com.cadastropessoas.domain.Person
+import br.com.cadastropessoas.web.representation.PersonRepresentation
 
 fun Person.toRepresentation() =
         PersonRepresentation(

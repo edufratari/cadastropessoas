@@ -1,11 +1,11 @@
 package br.com.cadastropessoas.web
 
-import br.com.cadastropessoas.api.representation.PersonRepresentation
-import br.com.cadastropessoas.api.request.CreatePersonRequest
-import br.com.cadastropessoas.api.request.UpdatePersonRequest
 import br.com.cadastropessoas.infraestructure.jsonToObject
 import br.com.cadastropessoas.infraestructure.objectToJson
 import br.com.cadastropessoas.web.config.ApplicationTestConfig
+import br.com.cadastropessoas.web.representation.PersonRepresentation
+import br.com.cadastropessoas.web.request.CreatePersonRequest
+import br.com.cadastropessoas.web.request.UpdatePersonRequest
 import org.junit.Before
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -66,8 +66,8 @@ abstract class ControllerBaseTeste {
 
     }
 
-    fun deletePerson(id: String){
-         this.mockMvc.perform(MockMvcRequestBuilders.delete("/persons/{personId}", id)
+    fun deletePerson(id: String) {
+        this.mockMvc.perform(MockMvcRequestBuilders.delete("/persons/{personId}", id)
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(MockMvcResultMatchers.status().isNoContent)
                 .andReturn()

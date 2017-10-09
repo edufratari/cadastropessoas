@@ -1,4 +1,4 @@
-package br.com.cadastropessoas.api.representation
+package br.com.cadastropessoas.web.representation
 
 data class PersonRepresentation(
         val id: String,

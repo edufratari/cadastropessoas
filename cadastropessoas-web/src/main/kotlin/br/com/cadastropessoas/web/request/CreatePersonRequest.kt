@@ -1,4 +1,4 @@
-package br.com.cadastropessoas.api.request
+package br.com.cadastropessoas.web.request
 
 import org.hibernate.validator.constraints.NotBlank
 

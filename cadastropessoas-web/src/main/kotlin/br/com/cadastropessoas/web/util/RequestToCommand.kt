@@ -1,10 +1,10 @@
 package br.com.cadastropessoas.web.util
 
-import br.com.cadastropessoas.api.request.CreatePersonRequest
-import br.com.cadastropessoas.api.request.UpdatePersonRequest
 import br.com.cadastropessoas.application.commands.CreatePerson
 import br.com.cadastropessoas.application.commands.UpdatePerson
 import br.com.cadastropessoas.domain.*
+import br.com.cadastropessoas.web.request.CreatePersonRequest
+import br.com.cadastropessoas.web.request.UpdatePersonRequest
 
 fun CreatePersonRequest.toCommand() =
         CreatePerson(

@@ -1,9 +1,9 @@
 package br.com.cadastropessoas.web.controller
 
-import br.com.cadastropessoas.api.representation.PersonRepresentation
 import br.com.cadastropessoas.infraestructure.jsonToObject
 import br.com.cadastropessoas.infraestructure.objectToJson
 import br.com.cadastropessoas.web.ControllerBaseTeste
+import br.com.cadastropessoas.web.representation.PersonRepresentation
 import org.junit.Test
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 class PersonControllerTest : ControllerBaseTeste() {
 
     @Test
-    fun createPersonSuccess(){
+    fun createPersonSuccess() {
         val person = createPersonRequestSuccess()
         val result = this.mockMvc.perform(MockMvcRequestBuilders.post("/persons")
                 .content(person.objectToJson())
@@ -24,7 +24,7 @@ class PersonControllerTest : ControllerBaseTeste() {
     }
 
     @Test
-    fun updatePersonSuccess(){
+    fun updatePersonSuccess() {
         val personId = createPerson()[0]
         val personToBeUpdated = updatePersonRequestSuccess()
         this.mockMvc.perform(MockMvcRequestBuilders.put("/persons/{personId}", personId)
@@ -35,14 +35,14 @@ class PersonControllerTest : ControllerBaseTeste() {
     }
 
     @Test
-    fun deletePersonSuccess(){
+    fun deletePersonSuccess() {
         val personId = createPerson()[0]
         this.mockMvc.perform(MockMvcRequestBuilders.delete("/persons/{personId}", personId))
                 .andExpect(MockMvcResultMatchers.status().isNoContent)
     }
 
     @Test
-    fun findPersonByCpfSuccess(){
+    fun findPersonByCpfSuccess() {
         val result = createPerson()
         this.mockMvc.perform(MockMvcRequestBuilders.get("/persons/{cpf}/cpf", result[1]))
                 .andExpect(MockMvcResultMatchers.status().isOk)
@@ -50,7 +50,7 @@ class PersonControllerTest : ControllerBaseTeste() {
     }
 
     @Test
-    fun findPersonByIdSuccess(){
+    fun findPersonByIdSuccess() {
         val personId = createPerson()[0]
         this.mockMvc.perform(MockMvcRequestBuilders.get("/persons/{personId}", personId))
                 .andExpect(MockMvcResultMatchers.status().isOk)
@@ -58,7 +58,7 @@ class PersonControllerTest : ControllerBaseTeste() {
     }
 
     @Test
-    fun findAllPersons(){
+    fun findAllPersons() {
         val personId = createPerson()[0]
         this.mockMvc.perform(MockMvcRequestBuilders.get("/persons"))
         deletePerson(personId!!)
