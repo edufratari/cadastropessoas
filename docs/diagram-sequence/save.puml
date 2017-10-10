@@ -1,0 +1,17 @@
+@startuml
+    actor Browser
+
+    control controller
+    boundary commandHandler
+    boundary Domain
+    boundary Repository
+    database postgres
+
+
+    Browser -> controller: Request
+    controller -> commandHandler: command
+    commandHandler -> Domain: create()
+    Domain -> Repository: save()
+    Repository -> postgres: insert
+
+@enduml

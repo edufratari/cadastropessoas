@@ -71,7 +71,6 @@ open class PersonCommandHandler @Autowired constructor(private val repository: P
     private fun getPerson(personId: PersonId): Person {
         return Optional.ofNullable(repository.find(personId))
                 .orElseThrow {
-                    //TODO Criar sua própria exceção PersonNotFoundException
                     throw PersonNotFoundException("Person not found")
                 }
     }
@@ -79,7 +78,6 @@ open class PersonCommandHandler @Autowired constructor(private val repository: P
     private fun getPerson(cpf: Cpf): Person? {
         return Optional.ofNullable(repository.findCpf(cpf))
                 .orElseThrow {
-                    //TODO Criar sua própria exceção PersonNotFoundException
                     throw PersonNotFoundException("Person not found")
                 }
     }

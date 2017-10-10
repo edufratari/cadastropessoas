@@ -1,5 +1,6 @@
 package br.com.cadastropessoas.web.controller
 
+import br.com.cadastropessoas.application.command.exception.PersonNotFoundException
 import br.com.cadastropessoas.application.commands.DeletePerson
 import br.com.cadastropessoas.application.commands.GetPerson
 import br.com.cadastropessoas.application.commands.GetPersonByCpf
@@ -49,10 +50,13 @@ class PersonController @Autowired constructor(private val commandHandler: Person
 
     @GetMapping("/{personId}")
     fun getPerson(@PathVariable("personId") personId: String): ResponseEntity<PersonRepresentation?> {
-
         val command = GetPerson(PersonId(personId))
-        val person = commandHandler.handler(command)
-        return ResponseEntity(person?.toRepresentation(), HttpStatus.OK)
+        return try {
+            val person = commandHandler.handler(command)
+            ResponseEntity(person?.toRepresentation(), HttpStatus.OK)
+        } catch (e: PersonNotFoundException) {
+            ResponseEntity(HttpStatus.NOT_FOUND)
+        }
     }
 
     @GetMapping("/{cpf}/cpf")
