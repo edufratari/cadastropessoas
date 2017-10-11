@@ -1,5 +1,5 @@
 @startuml
-    actor Browser
+    actor Client
 
     control controller
     boundary commandHandler
@@ -8,7 +8,7 @@
     database postgres
 
 
-    Browser -> controller: Request
+    Client -> controller: Request
     controller -> commandHandler: command
     commandHandler -> Domain: create()
     Domain -> Repository: save()

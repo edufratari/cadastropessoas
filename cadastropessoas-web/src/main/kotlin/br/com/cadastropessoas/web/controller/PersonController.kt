@@ -62,8 +62,12 @@ class PersonController @Autowired constructor(private val commandHandler: Person
     @GetMapping("/{cpf}/cpf")
     fun getPersonByCpf(@PathVariable("cpf") cpf: String): ResponseEntity<PersonRepresentation?> {
         val command = GetPersonByCpf(Cpf(cpf))
-        val person = commandHandler.handler(command)
-        return ResponseEntity(person?.toRepresentation(), HttpStatus.OK)
+        return try{
+            val person = commandHandler.handler(command)
+            ResponseEntity(person?.toRepresentation(), HttpStatus.OK)
+        }catch(e: PersonNotFoundException){
+            ResponseEntity(HttpStatus.NOT_FOUND)
+        }
     }
 
 }
